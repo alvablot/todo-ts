@@ -63,6 +63,14 @@ function App() {
                         <div key={`id_${i}`}>{task.id}</div>
                         <div key={`name_${i}`}>{task.name}</div>
                         <div key={`description_${i}`}>{task.description}</div>
+                        <div
+                            className="x"
+                            onClick={() => {
+                                setTasks(tasks.filter((element) => element.id !== task.id));
+                            }}
+                        >
+                            x
+                        </div>
                     </div>
                 );
             })}

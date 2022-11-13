@@ -7,6 +7,7 @@
 .tasks {
     background-color: red;
     margin: 6px;
+    padding: 5px;
 }
 .logo {
     height: 6em;
@@ -19,7 +20,12 @@
 .logo.react:hover {
     filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
+.x {
+    background:black;
+    cursor:grab;
+    display: inline;
+    padding: 1px 5px 1px 5px;
+}
 @keyframes logo-spin {
     from {
         transform: rotate(0deg);
