@@ -1,28 +1,13 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
+import { useExampleContext } from "./contexts/Example";
 
 function App() {
     const [id, setId] = useState<number>(1);
     const [taskInput, setTaskInput] = useState<string>("");
     const [descriptionInput, setDescriptionInput] = useState<string>("");
-    interface Task {
-        id: number;
-        name: string;
-        description: string;
-    }
-    const [tasks, setTasks] = useState<Task[]>([
-        {
-            id: id,
-            name: "Fixa",
-            description: "Städa",
-        },
-    ]);
-
-    useEffect(() => {
-        console.log(tasks);
-        setId(id + 1);
-    }, [tasks]);
+    const { tasks, setTasks } = useExampleContext();
 
     return (
         <div className="App">
@@ -31,7 +16,11 @@ function App() {
                 onClick={() => {
                     setTasks((prevTasks) => [
                         ...prevTasks,
-                        { id: id, name: taskInput, description: descriptionInput },
+                        {
+                            id: Math.round(Math.random() * 999999),
+                            name: taskInput,
+                            description: descriptionInput,
+                        },
                     ]);
                     setTaskInput("");
                     setDescriptionInput("");
